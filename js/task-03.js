@@ -25,17 +25,18 @@ headerTitle.style.color = 'teal';
 headerTitle.style.textAlign = 'center';
 
 
-  
 for (const image of images) {
-
   const allElements = document.createElement("li");
   const allImages = document.createElement("img");
   allImages.src = image.url;
   allImages.alt = image.alt;
   allImages.width = 840;
-  allElements.append(allImages);
-  list.append(allElements);
-
+  list.append(allImages);
+  allElements.insertAdjacentHTML("afterbegin", list);
 };
+
+
+
+
 
 
