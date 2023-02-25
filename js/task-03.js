@@ -24,15 +24,33 @@ const headerTitle = document.querySelector("h2");
 headerTitle.style.color = 'teal';
 headerTitle.style.textAlign = 'center';
 
-const allImagesArray = images.map(image => {
-  const allElements = document.createElement("li");
-  const allImages = document.createElement("img");
-  allImages.src = image.url;
-  allImages.alt = image.alt;
-  allImages.width = 840;
-  list.append(allImages);
-  allImages.insertAdjacentHTML("afterbegin", allElements);
-});
+
+const finalGallery = images => {
+
+const allImagesArray = images.reduce(
+  (acc, image) => acc + `
+     <li>
+       <img src="${image.url}" alt="${image.alt}" width="840">
+     </li>
+   `,
+  "");
+  list.insertAdjacentHTML('beforeend', allImagesArray);
+};
+  
+ finalGallery(images);
+  
+
+
+// const allImagesArray = images.reduce(
+//   (acc, image) => acc + `
+//      <li>
+//        <img src="${image.url}" alt="${image.alt}" width="840">
+//      </li>
+//    `,
+//   "");
+
+// list.innerHTML = allImagesArray;
+
 
 
 
